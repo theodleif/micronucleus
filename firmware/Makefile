@@ -22,7 +22,10 @@ CFLAGS =
 CONFIGPATH	  = configuration/$(CONFIG)
 include $(CONFIGPATH)/Makefile.inc
 
-PROGRAMMER ?= -c USBasp
+PROGRAMMER ?= -c stk500v1 -P /dev/ttyACM0 -b19200 -e
+# avrdude -pattiny85 -cstk500v1 -P/dev/ttyACM0 -b19200 -e -Uefuse:w:0xff:m -Uhfuse:w:0xdf:m -Ulfuse:w:0xe2:m
+
+# PROGRAMMER ?= -c USBasp
 # PROGRAMMER contains AVRDUDE options to address your programmer
 
 # Tools:
